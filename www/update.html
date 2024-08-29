@@ -40,6 +40,7 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             margin-top: 20px;
             text-align: center;
+            margin-bottom: 10px;
         }
         .version-info h2 {
             margin: 0;
@@ -57,6 +58,22 @@
         }
         body.dark-mode .vlink {
             color: aqua;
+        }
+
+        .vlink {
+        text-decoration: none;
+        background-color: #7952b3;
+        color: white;
+        border-radius: 12px;
+        font-size: 24px;
+        padding: 5px 10px;
+        border-color: #7952b3;
+        border-style: solid;
+        }
+
+        .vlink:hover {
+        background-color: transparent;
+        color: #7952b3;
         }
     </style>
 </head>
@@ -116,6 +133,7 @@
         <div class="version">1.2.0</div> <div class="date">29th August, 2024</div>
         <p>修復下載鏈接</p>
         <p>新增安裝包分流</p>
+        <p>已知問題：密碼生成、四子棋仍有顯示問題問題無法處理</p>
     </div>
 
     <footer>
@@ -130,7 +148,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // 當前應用版本
-            const currentVersion = "1.1.4";
+            const currentVersion = "1.2.0";
 
             // 設置當前用戶版本
             document.getElementById('currentVersion').textContent = currentVersion;
@@ -141,13 +159,14 @@
                 .then(data => {
                     const latestVersion = data.latest_version;
                     const updateUrl = `https://share.cyss.us.eu.org/program/Android/io.yesheng.gmae-${latestVersion}.apk`;
+                    const githubUrl = `https://github.com/CnYeSheng/mobilegame/releases/download/${latestVersion}/io.yesheng.game-${latestVersion}.apk`
 
                     // 設置最新版本
                     document.getElementById('latestVersion').textContent = latestVersion;
 
                     // 比較版本
                     if (currentVersion < latestVersion) {
-                        document.getElementById('updateMessage').innerHTML = `發現新版本！<a class="vlink" href="${updateUrl}" target="_blank">請更新至 ${latestVersion}</a>。`;
+                        document.getElementById('updateMessage').innerHTML = `發現新版本！請更新至 ${latestVersion}。<br><a class="vlink" href="${updateUrl}" target="_blank">主要</a> <a class="vlink" href="${githubUrl}" target="_blank">備用</a>`;
                         document.getElementById('updateMessage').style.color = "red";
                     } else if (currentVersion > latestVersion) {
                         document.getElementById('updateMessage').textContent = `您的版本太新了`;
