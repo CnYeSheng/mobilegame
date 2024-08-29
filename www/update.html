@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./logo.ico" sizes="500x500" type="image/x-icon"/>
+    <link rel="stylesheet" href="./sweetalert2.min.css">   
+    <link rel="stylesheet" href="./dark.css">   
+    <title>更新日誌</title>
+    <style>
+        .update-section {
+            background-color: #f0f0f0;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-color: #7952b3;
+            border-style: solid;
+            border-width: 1px;
+            border-left: 5px solid #7952b3;
+            border-radius: 18px
+        }
+        .date {
+            text-align: right;
+            font-weight: bold;
+            font-size: 1em;
+        }
+        .version {
+            float: left;
+            font-weight: bold;
+            font-size: 1.6rem;
+        }
+        .update {
+            border-left: 4px solid green;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .version-info {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            text-align: center;
+        }
+        .version-info h2 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .version-info p {
+            font-size: 18px;
+            color: #666;
+        }
+        .vlink {
+            text-decoration: none;
+        }
+        body.dark-mode .version-info {
+            background-color: #333;
+        }
+        body.dark-mode .vlink {
+            color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="nav-placeholder"></div>
+    <button id="darkModeToggle">🌓</button>
+
+    <h1 style="text-align: center;">更新日誌</h1>
+    <h3 style="text-align: center;">更新僅限Android版本</h3>
+
+    <div class="version-info">
+        <h2>當前版本：<span id="currentVersion">檢查中...</span></h2>
+        <h2>最新版本：<span id="latestVersion">檢查中...</span></h2>
+        <p id="updateMessage"></p>
+    </div>
+
+    <div class="update-section">
+        <div class="version">1.0.0</div> <div class="date">19th August, 2024</div>
+        <p>電腦版移至手機端</p>
+    </div>
+
+    <div class="update-section">
+        <div class="version">1.0.1</div> <div class="date">20th August, 2024</div>
+        <p>移除手機端無法正常遊玩之遊戲</p>
+    </div> 
+
+    <div class="update-section">
+        <div class="version">1.1.0</div> <div class="date">22nd August, 2024</div>
+        <p>新增選單模式</p>
+        <p>修改頁腳</p>
+    </div> 
+
+    <div class="update-section">
+        <div class="version">1.1.1</div> <div class="date">23rd August, 2024</div>
+        <p>修改選單顏色(可隨深淺切換顏色)</p>
+        <p>密碼生成修改顯示問題</p>
+        <p>四子棋顯示問題修正</p>
+    </div>
+
+    <div class="update-section">
+        <div class="version">1.1.2</div> <div class="date">25th August, 2024</div>
+        <p>更新頁面新增日期</p>
+        <p>新增版本檢測</p>
+        <p>密碼生成新增其它選項</p>
+        <p>修復密碼生成、四子棋顯示問題</p>
+    </div>
+
+    <div class="update-section">
+        <div class="version">1.1.3</div> <div class="date">26th August, 2024</div>
+        <p>版本檢查修復深淺色問題</p>
+        <p>更新日誌圓角</p>
+        <p>修復密碼生成、四子棋顯示問題</p>
+    </div>
+
+    <div class="update-section">
+        <div class="version">1.2.0</div> <div class="date">29th August, 2024</div>
+        <p>修復下載鏈接</p>
+        <p>新增安裝包分流</p>
+    </div>
+
+    <footer>
+        <div id="footer"></div>
+    </footer>
+
+    <!-- Scripts should be at the end of the body -->
+    <script src="./sweetalert2.js"></script>
+    <script src="./head.js"></script>
+    <script src="./footer.js"></script>
+    <script src="./darkmode.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 當前應用版本
+            const currentVersion = "1.1.4";
+
+            // 設置當前用戶版本
+            document.getElementById('currentVersion').textContent = currentVersion;
+
+            // 獲取最新版本信息
+            fetch('https://mobilegamecersion.yesheng.workers.dev')
+                .then(response => response.json())
+                .then(data => {
+                    const latestVersion = data.latest_version;
+                    const updateUrl = `https://share.cyss.us.eu.org/program/Android/io.yesheng.gmae-${latestVersion}.apk`;
+
+                    // 設置最新版本
+                    document.getElementById('latestVersion').textContent = latestVersion;
+
+                    // 比較版本
+                    if (currentVersion < latestVersion) {
+                        document.getElementById('updateMessage').innerHTML = `發現新版本！<a class="vlink" href="${updateUrl}" target="_blank">請更新至 ${latestVersion}</a>。`;
+                        document.getElementById('updateMessage').style.color = "red";
+                    } else if (currentVersion > latestVersion) {
+                        document.getElementById('updateMessage').textContent = `您的版本太新了`;
+                        document.getElementById('updateMessage').style.color = "red";
+                    } else {
+                        document.getElementById('updateMessage').textContent = "已是最新版本";
+                        document.getElementById('updateMessage').style.color = "green";
+                    }
+                })
+                .catch(error => {
+                    document.getElementById('latestVersion').textContent = "無法檢查更新。";
+                    document.getElementById('updateMessage').textContent = "請稍後重試。";
+                    document.getElementById('updateMessage').style.color = "orange";
+                });
+        });
+    </script>
+</body>
+</html>

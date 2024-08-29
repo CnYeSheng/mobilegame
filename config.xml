@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="io.yesheng.game" version="1.1.3" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>小遊戲</name>
+    <description>好玩的小遊戲</description>
+    <author email="cnyesheng@gmail.com" href="https://wmcc.jp.eu.org">
+        YeSheng
+    </author>
+    <content src="index.html" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+
+    <!-- 將 platform 放到 widget 標籤內部 -->
+    <platform name="android">
+        <!--
+            ldpi    : 36x36 px
+            mdpi    : 48x48 px
+            hdpi    : 72x72 px
+            xhdpi   : 96x96 px
+            xxhdpi  : 144x144 px
+            xxxhdpi : 192x192 px
+        -->
+        <icon src="res/ldpi.png" density="ldpi" />
+        <icon src="res/mdpi.png" density="mdpi" />
+        <icon src="res/hdpi.png" density="hdpi" />
+        <icon src="res/xhdpi.png" density="xhdpi" />
+        <icon src="res/xxhdpi.png" density="xxhdpi" />
+        <icon src="res/xxxhdpi.png" density="xxxhdpi" />
+    </platform>
+    <hook type="after_plugin_install" src="./rename_apk.js" />
+</widget>

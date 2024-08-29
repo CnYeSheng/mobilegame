@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "842465149101",
+    "project_id": "game-e8d67",
+    "storage_bucket": "game-e8d67.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:842465149101:android:5fbba7343d59da7b524624",
+        "android_client_info": {
+          "package_name": "io.yesheng.game"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCkDbhOpid8Py7gBaPrj4LbnXdf28YxqgU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,107 @@
+<!-- head.html -->
+<div id="slide-menu">
+    <span id="close-btn">&times;</span> <!-- 添加关闭按钮 -->
+    <a href="./index.html" class="primary-button">主要</a>
+    <a href="./update.html" class="primary-button">更新</a>
+    <a href="./Privacy.html" class="primary-button">《隱私權政策》</a>
+    <a href="./Terms.html" class="primary-button">《使用規範》</a>
+</div>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .primary-button {
+            color: #2D8DF8;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            margin: 5px;
+            text-decoration: none;
+            display: block;
+            background-color: #ECF5FF;
+            border-color: #A5D0FF;
+            border-style: solid;
+            border-width: 2px;
+            text-align: center;
+            z-index: 100;
+        }
+
+        .primary-button:hover, .primary-button.selected {
+            background-color: #007bff;
+            color: #00FF96;
+        }
+
+        body {
+            padding: 20px;
+            line-height: 1.6;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        #menu-icon {
+            font-size: 30px;
+            cursor: pointer;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        #slide-menu {
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: -250px;
+            overflow-x: hidden;
+            transition: 0.3s;
+            padding-top: 60px;
+            z-index: 50000;
+            background-color: #f4f4f4;
+            }
+
+        body.dark-mode #slide-menu {
+            background-color: #333;
+        }
+
+        body.dark-mode .primary-button {
+            background-color: transparent;
+        }
+
+        #slide-menu a {
+            text-decoration: none;
+            font-size: 25px;
+            display: block;
+            transition: 0.3s;
+        }
+
+        #slide-menu a:hover {
+            color: #00FF96;
+        }
+
+        #close-btn {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 30px;
+            cursor: pointer;
+            color: #818181;
+        }
+
+        #close-btn:hover {
+            color: #ff0000;
+        }
+    </style>
+        <script src="./darkmode.js"></script>
+        <link rel="stylesheet" href="./dark.css">  
+</head>
+<body>
+
+    <span id="menu-icon">&#9776;</span>
+    <div id="nav-placeholder"></div>
+
+</body>
+</html>
