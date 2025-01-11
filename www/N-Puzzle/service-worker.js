@@ -11,7 +11,7 @@
  * See https://goo.gl/2aRDsh
  */
 
-importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
+importScripts("./workbox-sw.js");
 
 importScripts(
   "/fifteen-puzzle/precache-manifest.7859fec387827fba3e5f2fdb780974c9.js"

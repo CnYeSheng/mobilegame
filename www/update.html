@@ -136,6 +136,11 @@
         <p>已知問題：密碼生成、四子棋仍有顯示問題問題無法處理</p>
     </div>
 
+    <div class="update-section">
+        <div class="version">1.3.0</div> <div class="date">11 Jan, 2025</div>
+        <p>新增JUNO、表情符號數學、Menja、熄燈、堆疊方塊、軟體專區</p>
+    </div>
+
     <footer>
         <div id="footer"></div>
     </footer>
@@ -148,7 +153,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // 當前應用版本
-            const currentVersion = "1.2.0";
+            const currentVersion = "1.3.0";
 
             // 設置當前用戶版本
             document.getElementById('currentVersion').textContent = currentVersion;
@@ -158,8 +163,8 @@
                 .then(response => response.json())
                 .then(data => {
                     const latestVersion = data.latest_version;
-                    const updateUrl = `https://share.cyss.us.eu.org/program/Android/io.yesheng.gmae-${latestVersion}.apk`;
-                    const githubUrl = `https://github.com/CnYeSheng/mobilegame/releases/download/${latestVersion}/io.yesheng.game-${latestVersion}.apk`
+                    const updateUrl = `https://share.cyss.us.eu.org/program/Android/io.yesheng.gmae-${latestVersion}_Offline.apk`;
+                    const githubUrl = `https://github.com/CnYeSheng/mobilegame/releases/download/${latestVersion}/io.yesheng.game-${latestVersion}_Offline.apk`
 
                     // 設置最新版本
                     document.getElementById('latestVersion').textContent = latestVersion;

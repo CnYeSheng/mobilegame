@@ -58,7 +58,7 @@ button {
 
 @media (min-width: 40rem) {
   #game {
-    /*max-width: 76vmin;*/
+    max-width: 76vmin;
     padding: 0;
     padding-top: 5vmin;
     min-height: calc(100vh - 5vmin);
@@ -69,16 +69,21 @@ button {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1rem;
+  /* width: 100%; */
+  padding: 0 1rem;
 }
 #game .flex p {
-  font-size: calc(1rem + 5vmin);
+  font-size: calc(1rem + 3vmin);
   margin: 0;
+  flex: 1;
 }
 #game .flex button {
-  font-size: 2rem;
+  font-size: 1.5rem;
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
   border: 2px solid #a7a8aa;
+  white-space: nowrap;
+  margin-left: 1rem;
 }
 #game .flex button:disabled {
   opacity: 0.5;
@@ -91,25 +96,26 @@ button {
 #board {
   margin: auto;
   display: grid;
-  grid-gap: 2vmin;
+  grid-gap: 1.5vmin;
   grid-template-columns: repeat(8, 1fr);
   justify-content: center;
   overflow: hidden;
   border-radius: 0.25rem;
-  padding: 2vmin;
+  padding: 1.5vmin;
   background: #7ba7bc;
   mix-blend-mode: multiply;
   box-shadow: 0.2rem 0.3rem 0.4rem rgba(83, 86, 90, 0.3), 
               -0.25rem -0.25rem 0.25rem rgba(89, 144, 171, 0.5) inset, 
               0.25rem 0.25rem 0.25rem rgba(157, 190, 205, 0.8) inset;
-  width: 90vw;
+  width: 100%;
   max-width: 76vmin;
 }
 
 @media (min-width: 40rem) {
   #board {
-    grid-gap: 1.7vmin;
-    width: 76vmin;
+    grid-gap: 1.5vmin;
+    width: 68vmin;
+    padding: 1.5vmin;
   }
 }
 #button-board [data-column] {
@@ -201,8 +207,8 @@ button {
 }
 
 .slot {
-  width: 7.998vmin;
-  height: 7.998vmin;
+  width: 7vmin;
+  height: 7vmin;
   background: #fff;
   border-radius: 7.998vmin;
   padding: 0;
@@ -211,8 +217,8 @@ button {
 }
 @media (min-width: 40rem) {
   .slot {
-    width: 6.999vmin;
-    height: 6.999vmin;
+    width: 6.5vmin;
+    height: 6.5vmin;
   }
 }
 .slot.shadow {
@@ -312,5 +318,15 @@ button {
   }
   to {
     opacity: 0;
+  }
+}
+
+@media (min-width: 40rem) {
+  #game .flex {
+    max-width: 76vmin;
+  }
+  
+  #game .flex p {
+    font-size: calc(1rem + 2vmin);
   }
 }

@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>密碼生成</title>
   <link rel="stylesheet" href="styles.css">
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="../sweetalert2.js"></script>
 
 </head>
 <body>
@@ -49,11 +49,11 @@
     </div>
     <div class="password-container">
       <input type="text" id="password" readonly>
-      <button id="copy-btn">
-        <i class="fas fa-copy">複製</i>
-      </button>
     </div>
+    <div style="display: flex"></div>
     <button id="generate-btn">生成</button>
+    <button id="copy-btn" class="fas fa-copy">複製 </button>
+  </div>
   </div>
 
   <script src="script.js"></script>

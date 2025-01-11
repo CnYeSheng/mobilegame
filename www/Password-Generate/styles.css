@@ -76,7 +76,7 @@ h1 {
 }
 
 #password {
-  flex: 0.85em;
+  /* flex: 0.85rem; */
   padding: 8px;
   border: 2px solid #ccc;
   border-radius: 8px;
@@ -108,7 +108,6 @@ h1 {
 }
 
 #generate-btn {
-  display: block;
   margin: 0 auto;
   padding: 15px 30px;
   background-color: #71b7e6;
@@ -124,8 +123,4 @@ h1 {
   background-color: #5aa7e3;
   transform: translateY(-3px);
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
-}
-
-.fas {
-  font-size: 18px;
 }
